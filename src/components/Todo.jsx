@@ -3,9 +3,13 @@ import { MdDelete } from "react-icons/md";
 import { FaRegEdit } from "react-icons/fa";
 import '../App.css'
 
-function Todo({todo}) {
+function Todo({todo, onRemoveTodo}) {
 
   const {id, content} = todo;
+  
+  const removeTodo = () => {
+    onRemoveTodo(id);
+  }
 
   return (
     <div style={
@@ -15,7 +19,7 @@ function Todo({todo}) {
             {content}
         </div>
         <div className='todo-icons'>
-            <MdDelete />
+            <MdDelete onClick={removeTodo}/>
             <FaRegEdit />
         </div>
     </div>
